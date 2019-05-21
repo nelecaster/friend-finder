@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+        integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+        integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="style/style.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
+        integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
+        integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
+        crossorigin="anonymous"></script>
+
+    <!-- Compiled and minified CSS 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">-->
+
+    <!-- Compiled and minified JavaScript 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>-->
+    <title>Friend Finder Survey</title>
+</head>
+
+<body
+    style="background-image: url('https://images.pexels.com/photos/242236/pexels-photo-242236.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500'); background-size: cover;">
+
+    <!--Modal to be displayed on click of Submit button-->
+    <div class="modal fade" id="best-match" tabindex="-1" role="dialog" aria-labelledby="best-match-name"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Best Match</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <!-- Friend match info dynamically inserted here -->
+                <div class="modal-body" id="best-match-info"></div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+            <div class="card bg-light text-center">
+                <div class="card-body">
+                    <h1>Survey Questions</h1>
+                </div>
+            </div>
+        </div>
+
+    <div class="container" style="height:100vh;width:80%;overflow:auto;">
+
+        
+        <br>
+        <div class="container">
+            <h2>About You</h2>
+            <form>
+                <div class="form-group">
+                    <label for="user-name">Name (Required)</label>
+                    <input type="text" class="form-control" id="user-name" aria-describedby="user-name"
+                        placeholder="Enter Name">
+                </div>
+                <div class="form-group">
+                    <label for="photo-link">Link to Photo Image (Required)</label>
+                    <input type="text" class="form-control" id="photo-link" placeholder="Your Link Here">
+                </div>
+                <hr>
+
+                <div class="form-group mb-4">
+                    <h3>Question 1</h3>
+                    <label for="exampleFormControlSelect1">Your mind is always buzzing with unexplored ideas and
+                        plans.</label>
+                    <select class="form-control" id="q1">
+                        <option selected>Select an Option</option>
+                        <option>1 (Strongly Disagree)</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5 (Strongly Agree)</option>
+                    </select>
+                </div>
+
+                <div class="form-group mb-4">
+                    <h3>Question 2</h3>
+                    <label for="exampleFormControlSelect1">Generally speaking, you rely more on your experience than
+                        your
+                        imagination.</label>
+                    <select class="form-control" id="q2">
+                        <option selected>Select an Option</option>
+                        <option>1 (Strongly Disagree)</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5 (Strongly Agree)</option>
+                    </select>
+                </div>
+
+                <div class="form-group mb-4">
+                    <h3>Question 3</h3>
+                    <label for="exampleFormControlSelect1">You find it easy to stay relaxed and focused even when there
+                        is
+                        some pressure.</label>
+                    <select class="form-control" id="q3">
+                        <option selected>Select an Option</option>
+                        <option>1 (Strongly Disagree)</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5 (Strongly Agree)</option>
+                    </select>
+                </div>
+
+                <div class="form-group mb-4">
+                    <h3>Question 4</h3>
+                    <label for="exampleFormControlSelect1">You rarely do something just out of sheer curiosity.</label>
+                    <select class="form-control" id="q4">
+                        <option selected>Select an Option</option>
+                        <option>1 (Strongly Disagree)</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5 (Strongly Agree)</option>
+                    </select>
+                </div>
+
+                <div class="form-group mb-4">
+                    <h3>Question 5</h3>
+                    <label for="exampleFormControlSelect1">People can rarely upset you.</label>
+                    <select class="form-control" id="q5">
+                        <option selected>Select an Option</option>
+                        <option>1 (Strongly Disagree)</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5 (Strongly Agree)</option>
+                    </select>
+                </div>
+
+                <div class="form-group mb-4">
+                    <h3>Question 6</h3>
+                    <label for="exampleFormControlSelect1">It is often difficult for you to relate to other people’s
+                        feelings.</label>
+                    <select class="form-control" id="q6">
+                        <option selected>Select an Option</option>
+                        <option>1 (Strongly Disagree)</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5 (Strongly Agree)</option>
+                    </select>
+                </div>
+
+                <div class="form-group mb-4">
+                    <h3>Question 7</h3>
+                    <label for="exampleFormControlSelect1">In a discussion, truth should be more important than people’s
+                        sensitivities.</label>
+                    <select class="form-control" id="q7">
+                        <option selected>Select an Option</option>
+                        <option>1 (Strongly Disagree)</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5 (Strongly Agree)</option>
+                    </select>
+                </div>
+
+                <div class="form-group mb-4">
+                    <h3>Question 8</h3>
+                    <label for="exampleFormControlSelect1">You rarely get carried away by fantasies and ideas.</label>
+                    <select class="form-control" id="q8">
+                        <option selected>Select an Option</option>
+                        <option>1 (Strongly Disagree)</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5 (Strongly Agree)</option>
+                    </select>
+                </div>
+
+                <div class="form-group mb-4">
+                    <h3>Question 9</h3>
+                    <label for="exampleFormControlSelect1">You think that everyone’s views should be respected
+                        regardless of
+                        whether they are supported by facts or
+                        not.</label>
+                    <select class="form-control" id="q9">
+                        <option selected>Select an Option</option>
+                        <option>1 (Strongly Disagree)</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5 (Strongly Agree)</option>
+                    </select>
+                </div>
+
+                <div class="form-group mb-4">
+                    <h3>Question 10</h3>
+                    <label for="exampleFormControlSelect1">You feel more energetic after spending time with a group of
+                        people.</label>
+                    <select class="form-control" id="q10">
+                        <option selected>Select an Option</option>
+                        <option>1 (Strongly Disagree)</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5 (Strongly Agree)</option>
+                    </select>
+                </div>
+
+
+
+
+                <input id="submitSurvey" class="btn btn-primary" type="submit" value="Submit">
+        </div>
+
+        </form>
+    </div>
+    </div>
+    <br>
+    <br>
+
+    <div class="container">
+        <div class="card text-center">
+            <div class="card-body bg-light">
+                <span>
+                    <a href="/api/friends">API Friends List</a>
+                    |
+                    <a href="">Github Repo</a>
+                </span>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+    <script type="text/javascript">
+        $("#submitSurvey").on("click", function (event) {
+            event.preventDefault();
+            var newFriend = {
+                name: "",
+                photo: "",
+                scores: []
+            };
+
+            if ($("#user-name").val() === "") {
+                $("#user-name").focus();
+                return alert("PLEASE ENTER A NAME");
+            }
+
+            else if ($("#photo-link").val() === "") {
+                $("#photo-link").focus();
+                return alert("PLEASE ENTER AN IMAGE LINK");
+            }
+            //sets new new user object name and photo link
+            newFriend.name = $("#user-name").val().trim();
+            newFriend.photo = $("#photo-link").val().trim();
+            //veryifying that all questions have been answered
+            for (i = 0; i < 10; i++) {
+                if ($("#q" + (i + 1)).val() === "Select One") {
+                    $("#q" + (i + 1)).focus();
+                    return alert("YOU HAVE NOT ANSWERED QUESTION " + (i + 1));
+                }
+                //pushing scores into newfriend object, also removing text from "strongly agree" and "strongly disagree" options
+                newFriend.scores.push($("#q" + (i + 1)).val());
+                newFriend.scores[i] = parseInt(newFriend.scores[i]);
+            }
+            //reset form
+            $("#user-name").val('');
+            $("#photo-link").val('');
+            for (i = 0; i < 10; i++) {
+                $("#q" + (i + 1)).val('Select One');
+            }
+            // Post request with the completed newFriend object. 
+            // The data callback is either the bestMatch object from the apiRoutes.js, or it comes back as an empty string if there is no match.
+            $.post("/api/friends", newFriend, function (data) {
+                if (data === "") {
+                    // If there is no match, tell the user so. Added feature to jump back to the top of the page.
+                    $("#best-match-info").html("..Looks like you're the only one here.");
+                    $("#best-match").modal();
+                    $('html,body').scrollTop(0);
+                }
+                else {
+                    // Display the name and photo of the best matched friend.
+                    $("#best-match-info").html('<h3>' + data.name + '</h3>' +
+                        '<br />' +
+                        '<img src="' + data.photo + '" style="width: 100%; height: auto;">');
+                    $("#best-match").modal();
+                    $('html,body').scrollTop(0);
+                }
+            });
+        });
+    </script>
+
+
+
+</body>
+
+</html>
